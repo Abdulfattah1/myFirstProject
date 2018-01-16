@@ -1,0 +1,142 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<title>
+<%= title %>
+
+</title>	
+
+<script type="text/javascript">
+</script>
+</head>
+
+<body>
+	<header>
+	<input  type = "hidden" id = "IN01" value = "0" >
+	</header>
+  <script src = 'design/javascripts/socket.io.js'  ></script>
+  <script  src = "design/javascripts/js.cookie.js" > </script>
+
+
+    <% include include %>
+    <% include style_Question %>
+
+<script>
+
+
+socket = io();
+var score  = 0 ; 
+var player = Cookies.get('usrName');
+
+socket.emit('joinNewPlyer', {"username": player , "CONTname": "<%=title%>" } );
+
+
+
+
+var numOFques = 0 ;
+function test(){
+	$.ajax({
+	url:"http://localhost:3000/CplusplusQuestion/" + "<%=title%>" ,
+	type:"POST",
+	data:{"player" : player , "numOFques":numOFques, "corect" : clickBtn.value  },
+	success:function(res){
+		if(res.answer == "yes"){score++};
+		numOFques++;	
+		if( res.question[0] == "#" )
+		{
+		
+		 var texture = "<h2 class='ques'>" + res.question.substr(1,res.question.length-1) + "</h2>" ;
+		 MAIN_01.innerHTML = texture;
+		 
+		}else{
+	  	  var texture = "<h2 class='ques'>" + res.question.texture + "</h2>" ;
+        var ansD = "" ; 
+		res.question.answer.forEach(function (ans) {
+         ansD +="<div class='answer col-xs-offset-3'>" + "<input id = 'answer' type='radio' name = 'answer' onclick = 'F(this)' value = " + ans.correct +" > " + ans.choice + "</div><br>" ;
+		});		
+         ansD +=     '<br><button id="clickBtn" value = "" onclick="test()" class="col-xs-offset-5 btn-lg btn-success btn-block" style="width: 17%">go!</button>';
+		MAIN_01.innerHTML = texture + ansD ; 
+	                 }
+					 }
+		});
+	
+}
+
+
+
+function F(x){
+ clickBtn.value = x.value ;
+}	
+
+
+
+
+socket.on( "showHallOfScore" , function (data) {
+       window.location.href  = "/CplusplusQuestion/" + data + "/scores" ;
+} )
+
+function getTimeRemaining(endtime) {	
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var seconds = Math.floor((t / 1000) % 60);
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+  return {
+    'total': t,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  var clock = document.getElementById(id);
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+	  }
+	  
+  }
+
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+
+var deadline = new Date(Date.parse(new Date()) +  <%=  period %> );
+initializeClock('clockdiv', deadline);
+
+ 
+ 
+
+</script>
+
+   <!--
+      <section class="loading">
+          <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+          </div>
+      </section>
+      -->
+
+    </body>
+
+</html>
+
+
+
+<!-- our question has {
+    "texture"                             /// text of question ...
+	"type"   ,                            /// multipleChoice or inputOutput question ... etc
+	"suject" ,                            /// Chemistry, Physics, Science or Programming ... etc
+	"level"  ,                            /// Beginner, intermediate, advanced, expert or legendary ...
+	"answer" = [{choice , tag}]           /// wrong and correct answers as pair of string and tag for correct answer 
+ }
+
+-->

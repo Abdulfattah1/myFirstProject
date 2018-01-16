@@ -1,0 +1,55 @@
+
+<html>
+
+
+<head>
+<style type="text/css">
+	body
+	{
+		background-color: black;
+		color: white;
+	}
+
+	.btn 
+	{
+		margin-left: 40px;
+		color: white;
+		background-color: red;
+		border: 1px solid black;
+		border-radius: 5px 5px 5px 5px;
+		padding: 5px;
+		font-size: 18px;
+		margin-left: 40%;
+		margin-top: 10%;
+		transition-duration: 2s;
+		opacity: 0.8;
+	}
+
+	.btn:hover
+	{
+		opacity: 1;
+		transform: scale(1.1,1.1);
+	}
+</style>
+
+
+
+
+<title> <%=title%> </title>
+</head>
+
+<body  class="The_result">
+
+ <h1 style="margin-left: 40%"> The <strong style="color: green"> List </strong>of <strong style="color: red">scores </strong> </h1> 
+<ul style="margin-left: 40%; margin-top: 20px;">
+ <%  score.forEach(function (itm){ %>
+ <li style="font-size: 20px; "><%= itm.user %> <span style="color: yellow"> : achieve : </span>  <%= itm.score %> </li>
+ <% } ); %>
+</ul>
+
+<a href="/">
+<button class="btn"> return to the main page</button>
+</a>
+</body>
+</html>
+

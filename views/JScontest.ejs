@@ -1,0 +1,104 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title> <%= title %> </title> 
+</head>
+
+<% include include %>
+<% include Html_Contest %>
+<body>
+<script src = 'design/javascripts/socket.io.js'  ></script>
+<script  src = "design/javascripts/js.cookie.js" > </script>
+
+<script> 
+
+    function TimeToStart()
+    {
+      var day1 = document.getElementById('day').value;
+      var hour1 = document.getElementById('hour').value;
+      var minute1 = document.getElementById('minute').value;
+      var sss;
+      day1 = day1 * 24 * 60 * 60 * 1000;
+      hour1= hour1 * 60 * 60 * 1000;
+      minute1 = minute1 * 60 * 1000;
+      sss = minute1 + day1 + hour1 ;
+      alert(sss);
+      return sss;
+    } 
+
+
+
+var period =  100*1000  ; /// by default ...  
+
+var   socket = io() ; 
+
+A01.onclick = function(){ period  = 2*60*60*1000 ;   };
+A02.onclick = function(){ period  = 1*60*60*1000 ;   };
+A03.onclick = function(){ period  = 1*30*60*1000 ;   };
+A04.onclick = function(){ period  = 1*15*60*1000 ;   };
+A05.onclick = function(){ period  = 1*10*60*1000 ;   };
+A06.onclick = function(){ period  = 1*5*60*1000  ;   };
+A07.onclick = function(){ period  = 1*1*60*1000  ;   };
+
+document.getElementById('D01').onclick = function(){  
+ var linker = "/JSQuestion/" + IDcontest.value;
+FUN();
+   TTS = TimeToStart();
+   socket.emit('submitContestPage' , {'TTS':TTS, "IDcontest" :  IDcontest.value,"period" :period ,"numType" : 4   } );
+    window.location.href = linker ;   
+   return false ;}
+D02.onclick = function(){ 
+	FUN();
+	TTS = TimeToStart();
+   socket.emit('submitContestPage' , {'TTS':TTS, "IDcontest" :  IDcontest.value,"period" :period ,"numType" : 4  } );}
+///B01.onclick = function()
+
+ function TimeToStart()
+    {
+      var day1 = document.getElementById('day').value;
+      var hour1 = document.getElementById('hour').value;
+      var minute1 = document.getElementById('minute').value;
+      var sss;
+      day1 = day1 * 24 * 60 * 60 * 1000;
+      hour1= hour1 * 60 * 60 * 1000;
+      minute1 = minute1 * 60 * 1000;
+      sss = minute1 + day1 + hour1 ;
+      alert(sss);
+      return sss;
+    } 
+
+function FUN(){
+  var USRNAME = document.getElementById("IDcontant").value;
+  var CONTEST = document.getElementById("IDcontest").value;
+ Cookies.set( 'usrName' , USRNAME , {expires:0.125 } ); ///expires:0.125 is 3 hours !.
+ Cookies.set( 'contName' , CONTEST , {expires:0.125 } );
+ Cookies.set( 'mySituation' , "YES" , {expires:0.125 } );
+}   
+ 
+ 
+ 	   function refreshPage(){
+	   			
+	        var check = Cookies.get('mySituation');
+			if( check == "YES" ){
+			var cont = Cookies.get("contName");
+			socket.emit("addContestant" , cont);
+			}
+	   }
+		refreshPage();	
+		
+		
+		socket.on("goToContest" , function(data){
+       if(data.LANG == 1)
+	   window.location.href = "/CplusplusQuestion/" + data.CONT ;
+	   if(data.LANG == 2)
+	   window.location.href = "/HTMLQuestion/" + data.CONT ;
+	   if(data.LANG == 3)
+	   window.location.href = "/JavaQuestion/" + data.CONT ;
+	   if(data.LANG == 4)
+	   window.location.href = "/JSQuestion/" + data.CONT ;
+	   
+	   });
+</script>
+</body>
+
+</html>

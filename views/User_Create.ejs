@@ -1,0 +1,460 @@
+<html>	
+
+<head>
+ <title> user-created question </title>
+</head>
+
+<body class="user_created_contest">
+
+  <% include include %>	
+  <nav class="navbar navbar-default wow slideInDown">
+     <div class="navbar-header">
+     <a href="/" class="navbar-brand">Quiz maker</a>	
+    </nav>
+  <section class="Contests_name">
+   <div class="container text-center">
+     <h1 class="wow fadeInDown" data-wow-duration='1s' data-wow-delay='0.5s'> <strong style="color: red">Create </strong> Your <strong style="color: green">Own Quiz </strong> </h1> 
+    <div class="row">
+     <form>
+       	<div class="Form">
+		  <form class="form-group">
+ 			<div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4 wow fadeInDown" data-wow-duration='1s' data-wow-delay='1s'>	
+			    <label class="visible-lg">Enter The name of Contest</label>
+			        <input type = 'text' id = 'nameOFcontest' placeholder="Contest's Name" 
+			          class="form-control C_Name"> <br>
+			</div>`
+
+			<div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4 wow fadeInDown" data-wow-duration='1s' data-wow-delay='1.5s'>
+			    <label class="visible-lg"> Enter Creater's Name</label>
+			        <input type = 'text' id = 'nameOFcontant' placeholder="Your Name" 
+			          class="form-control F_Name"> <br>
+			</div>
+		 </form>
+		</div>
+   	</form>
+    <div class="col-xs-12 All_Menu">
+
+    <!--Time -->
+   	  <div class="col-xs-offset-2 col-xs-8 col-lg-3 wow fadeInDown " data-wow-duration='1s' data-wow-delay='2s'>
+   	   <label class="visible-lg">Enter The Time</label>
+   	    <button type="button" class="btn btn-primary btn-block Time" style="width: 100%" data-toggle="modal" data-target=".bs-example-modal-lg">Time</button>
+                      <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                        <div class="modal-dialog modal-sm" role="document">
+                           <div class="modal-content">
+                             <ul class="list-unstyled List_Of_period Time1"  id = "ListOfPeriod">
+                               <li><button id = "A07" class="btn btn-primary">1 minutes</button></li> 
+                               <li><button id = "A06" class="btn btn-primary">5 minutes</button></li>
+                               <li><button id = "A05" class="btn btn-primary">10 minutes</button></li>
+                               <li><button id = "A07" class="btn btn-primary">15 minutes</button></li>
+                               <li><button id = "A04" class="btn btn-primary">15 minutes</button></li>
+                    	     	   <li><button id = "A03" class="btn btn-primary">30 minutes</button></li>
+                    		       <li><button id = "A02" class="btn btn-primary">1 hour</button></li>
+                    		       <li><button id = "A01" class="btn btn-primary">2 hour</button></li>
+                     		     </ul>
+                           </div>
+                        </div>
+                      </div>
+    	</div>
+
+
+
+    <!-- Level -->
+      <div class="col-xs-offset-2 col-xs-8 col-lg-3 wow fadeInDown " data-wow-duration='1s' data-wow-delay='2s'>
+       <label class="visible-lg">Enter The Level</label>
+   	    <button type="button" class="btn btn-success btn-block" style="width: 100%" data-toggle="modal" data-target=".bs-example-modal-sm2">Level</button>
+                      <div class="modal fade bs-example-modal-sm2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                        <div class="modal-dialog modal-sm" role="document">
+                           <div class="modal-content">
+                           <ul class="list-unstyled List_Of_period Type " id = 'level'>
+                  							<li ><button class="btn btn-primary" onclick = 'lev(this)'>Beginner</button></li>
+                  							<li ><button class="btn btn-primary" onclick = 'lev(this)'>intermediate</button></li>
+                  							<li ><button class="btn btn-primary" onclick = 'lev(this)'>advanced</button></li>
+                  							<li ><button class="btn btn-primary" onclick = 'lev(this)'>expert</button></li>
+                  							<li ><button class="btn btn-primary" onclick = 'lev(this)'>legendary</button></li>
+                     	    </ul>
+                           </div>
+                        </div>
+                      </div>
+    	</div>
+
+
+      <!--language button-->
+    	   	  <div class="col-xs-8 col-xs-offset-2 col-lg-offset-0  col-lg-4 wow fadeInDown" data-wow-duration='1s' data-wow-delay='2.5s'>
+    	   	  <label class="visible-lg">Enter The Language</label>
+   	            <button type="button" class="btn btn-danger btn-block language" style="width: 100%" data-toggle="modal"  data-target=".bs-example-modal-sm3">Language</button>
+                      <div class="modal fade bs-example-modal-sm3" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                        <div class="modal-dialog modal-sm" role="document">
+                           <div class="modal-content">
+                               <ul class="list-unstyled List_Of_period Language" id = 'language' value = "">
+                                  <li><button class="btn btn-primary" onclick = 'speclang(this)'>C plusplus</button></li>
+                                  <li><button class="btn btn-primary" onclick = 'speclang(this)'>Java</button></li>
+                       		        <li><button class="btn btn-primary" onclick = 'speclang(this)'>HTML</button></li>
+                       		        <li><button class="btn btn-primary" onclick = 'speclang(this)'>JavaScript</button></li>
+                       		     </ul>
+                           </div>
+                        </div>
+                      </div>
+    	        </div>
+      <!--end language button-->
+
+      <!-- Question button-->
+    	   	 <div class="col-xs-offset-2 col-xs-8 col-lg-offset-4 col-lg-4 Question wow fadeInDown" data-wow-duration='1s' data-wow-delay='2.5s'>
+    	   	    <label class="visible-lg">Click Here Tp  Add a New  Question</label>
+   	              <button type="button" class="btn btn-danger btn-block" style="width: 100%" data-toggle="modal"  data-target=".bs-example-modal-lg1">Add a New Question</button>
+   	      </div>
+
+
+      <!--Time To Start The Contest-->
+            <div class="col-xs-offset-2 col-xs-8 col-lg-offset-4 col-lg-4 wow fadeInDown" data-wow-duration='1s' data-wow-delay='3s'>
+              <label class="visible-lg">Time To Start The Contest</label>
+                  <button type="button" class="btn btn-danger btn-block TimeToStart" style="width: 100%" data-toggle="modal"  data-target=".bs-example-modal-sm4">Click</button>
+                     <div class="modal fade bs-example-modal-sm4" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                        <div class="modal-dialog modal-sm" role="document">
+                           <div class="modal-content">
+                            <div class="modal-body">
+                              <div class="row">
+                                <div class="col-lg-2 col-lg-offset-1">
+                                 <label style="color: black;margin-left: 20px">Day</label> 
+                                  <input type="number" max="30" min="0" style="color: black;" id="day">
+                                </div>
+                                <div class="col-lg-2 col-lg-offset-1">
+                                 <label style="color: black;">Hour</label>
+                                  <input type="number" max="12" min="0" style="color: black;" id="hour">
+                                </div>
+                                <div class="col-lg-2 col-lg-offset-1">
+                                 <label style="color: black;margin-left: 2px">minute</label>
+                                  <input type="number" max="24" min="0" style="color: black;" id="minute">
+                                </div>
+
+                                <div class="col-lg-12">
+                                 <button class="btn btn-success" id="Button" style="margin-top: 10px" 
+                                 onclick="TimeToStart()";
+                                 >Click</button>
+                                </div>
+                              </div>
+                            </div>             
+                           </div>
+                        </div>
+                      </div>
+            </div>
+
+      <!--Time To Start The Contest-->
+
+
+
+
+
+
+
+
+          <!--add a question-->
+
+   	        <div class="col-xs-offset-2 col-xs-8 col-lg-offset-4 col-lg-4 Question wow fadeInDown" data-wow-duration='1s' data-wow-delay='3.5s'>
+    	   	    <label class="visible-lg">Click Here To  Submit The Contest</label>
+                <a id="href">
+   	              <button disabled='disabled' id ='btn02' onclick = 'finish()' type="button" class="btn btn-danger btn-block" style="width: 100%" data-toggle="modal">Submit The Contest</button>
+                </a>
+   	        </div>
+            <!--add a question-->
+
+
+
+
+            <div class="modal fade bs-example-modal-lg1 QQ" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content ">
+                        <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                             <h4 class="modal-title " style="color: black; display: block;" id="gridSystemModalLabel">Question 1 </h4>
+                        </div>
+
+                            <div class="modal-body">
+                            	
+                            <!--Questions-->
+                            <div class="col-lg-2 Lable1 visible-lg">
+                             <label style="color: black">The Question</label>
+                            </div>
+                           <form class="form-group col-lg-8 col-xs-12 col-xs-offset-1 ">
+                           	<input class="form-control Q1" id = 'texture' name = 'texture' placeholder = 'type down the text of the question' >
+                           </form>
+
+                           <!-- End Questions-->
+
+                           <!--Answer 1 -->
+                          <div class="col-lg-2  visible-lg">
+                             <label style="color: black">Answer 1</label>
+                           </div>
+                           <div class="col-lg-9 col-xs-12">
+                            <input id ='ans01' placeholder ='first answer' class="form-control Ans1">
+                            </div>
+                            <div class="col-lg-1 col-xs-12">
+                             <div class="correct_naswer">
+                            <input type = "checkbox" id = "corct01">
+                             </div>
+                           </div>
+
+                           <!--End Answer 1 -->
+
+                          <!--Answer 2 -->
+                          <div class="col-lg-2  visible-lg ">
+                             <label style="color: black">Answer 2</label>
+                           </div>
+                           <div class="col-lg-9 col-xs-12">
+                            <input id ='ans02' placeholder ='Second answer' class="form-control Ans1">
+                            </div>
+                            <div class="col-lg-1 col-xs-12">
+                             <div class="correct_naswer">
+                            <input type = "checkbox" id = "corct02">
+                             </div>
+                           </div>
+
+                           <!--End Answer 2 -->
+
+                                                      <!--Answer 3 -->
+                          <div class="col-lg-2  visible-lg ">
+                             <label style="color: black">Answer 3</label>
+                           </div>
+                           <div class="col-lg-9 col-xs-12">
+                            <input id ='ans03' placeholder ='third answer' class="form-control Ans1">
+                            </div>
+                            <div class="col-lg-1 col-xs-12">
+                             <div class="correct_naswer">
+                            <input type = "checkbox" id = "corct03">
+                             </div>
+                           </div>
+
+                           <!--End Answer 1 -->
+
+                                                      <!--Answer 4 -->
+                          <div class="col-lg-2  visible-lg">
+                             <label style="color: black">Answer 4</label>
+                           </div>
+                           <div class="col-lg-9 col-xs-12">
+                            <input id ='ans04' placeholder ='forth answer' class="form-control Ans1">
+                            </div>
+                            <div class="col-lg-1 col-xs-12">
+                             <div class="correct_naswer">
+                            <input type = "checkbox" id = "corct04">
+                             </div>
+                           </div>
+
+                           <!--End Answer 4	 -->
+
+						
+					 <h1> I Don't know why this things is happining</h1>
+					 <div class="col-lg-4 col-lg-offset-4 col-xs-12">
+							<button class="btn btn-danger btn-lg" id = 'Btn01' onclick = 'addques()'> Add a new Question </button>
+    	     </div>
+    	        </div>
+    	    </div>
+    	</div>
+     </div>
+  </section>
+
+  <section class="loading">
+    <div class="spinner">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div> 
+    </div>
+  </section>
+</div>
+
+		 <script src = "design/js/jquery-3.2.1.min.js"> </script>
+		 <script  src = "design/javascripts/js.cookie.js" > </script>
+ 
+
+
+<script>
+
+var indx = 0 ;
+var language = 5 ; 
+var level ; 
+var question = [];
+
+function speclang(XXX){
+   
+     if( "C plusplus" == XXX.innerHTML )language = 1;
+     if( "HTML" == XXX.innerHTML )language = 2;
+	   if( "Java" == XXX.innerHTML )language = 3;
+	   if( "JavaScript" == XXX.innerHTML )language = 4;
+      	window.alert( language );
+}
+function lev(XXX){
+     level = XXX.innerHTML;
+	
+}
+
+function addques(){
+ var answers = [] ;
+ var obf = {};
+
+ if( document.getElementById("corct01").checked ){
+    answers.push( {
+	      choice  : document.getElementById('ans01').value ,
+		  correct : "yes" 
+		   });
+   }else {
+       answers.push( {
+	      choice  : document.getElementById('ans01').value ,
+		  correct : "no" 
+		   });
+   }
+   document.getElementById('ans01').value = "";
+    if( document.getElementById("corct02").checked ){
+    answers.push( {
+	      choice  : document.getElementById('ans02').value ,
+		  correct : "yes" 
+		   });
+   }else {
+       answers.push( {
+	      choice  : document.getElementById('ans02').value ,
+		  correct : "no" 
+		   });
+   } 
+    document.getElementById('ans02').value = "";
+   if( document.getElementById("corct03").checked ){
+    answers.push( {
+	      choice  : document.getElementById('ans03').value ,
+		  correct : "yes" 
+		   });
+   }else {
+       answers.push( {
+	      choice  : document.getElementById('ans03').value ,
+		  correct : "no" 
+		   });
+   } 
+   document.getElementById('ans03').value = "";
+   if( document.getElementById("corct04").checked ){
+    answers.push( {
+	      choice  : document.getElementById('ans04').value ,
+		  correct : "yes" 
+		   });
+   }else {
+       answers.push( {
+	      choice  : document.getElementById('ans04').value ,
+		  correct : "no" 
+		   });
+   } 
+   document.getElementById('ans04').value = "" ;
+   var str = "" ; 
+  answers.forEach(function(itm){
+     str += itm.choice + "  --  " + itm.correct + "\n" ;
+  } )
+  window.alert("the answers :   " + str   );
+ obf.id        = indx;
+ obf.texture   = document.getElementById('texture').value ; 
+ obf.type      = "multipleChoice";
+ obf.subject   = language ;
+ obf.level     = level ;
+ obf.answer    = answers;
+ 
+ indx++;
+ question.push(obf);
+  document.getElementById('gridSystemModalLabel').innerHTML = 'Question ' + (question.length + 1);
+ var list = document.querySelectorAll( 'input[type=checkbox]' );
+for (var item of list) {
+  item.checked = false;
+} 
+document.getElementById("texture").value = "" ;
+
+}
+
+var period =  50*1000  ; /// by default ...  
+
+A01.onclick = function(){ period  = 2*60*60*1000 ;  document.getElementById("ListOfPeriod").remove()  };
+A02.onclick = function(){ period  = 1*60*60*1000 ;  document.getElementById("ListOfPeriod").remove() };
+A03.onclick = function(){ period  = 1*30*60*1000 ;  document.getElementById("ListOfPeriod").remove() };
+A04.onclick = function(){ period  = 1*15*60*1000 ;  document.getElementById("ListOfPeriod").remove() };
+A05.onclick = function(){ period  = 1*10*60*1000 ;  document.getElementById("ListOfPeriod").remove() };
+A06.onclick = function(){ period  = 1*5*60*1000  ;  document.getElementById("ListOfPeriod").remove()  };
+A07.onclick = function(){ period  = 1*1*60*1000  ;  };
+
+function finish(){
+ 
+
+  var USRNAME = document.getElementById("nameOFcontant").value;
+  var CONTEST = document.getElementById("nameOFcontest").value;
+   if(question.length<3)
+      {
+        alert('you have to add three questions at list to your Contest');
+        document.getElementById('btn02').setAttribute("data-target",".bs-example-modal-lg1");
+      }
+   if(CONTEST==='')
+   {
+    document.getElementById('nameOFcontest').value = 'mycontest';
+   }
+
+   if(USRNAME==='')
+   {
+    document.getElementById('nameOFcontant').value = 'Super_Man';
+   }
+ Cookies.set( 'usrName' , USRNAME , {expires:0.125 } ); ///expires:0.125 is 3 hours !.
+ Cookies.set( 'contName' , CONTEST , {expires:0.125 } );
+ Cookies.set( 'mySituation' , "YES" , {expires:0.125 } );
+
+
+
+var  STTIME   = TimeToStart();
+
+$.ajax({
+	url:"http://localhost:3000/user_created_contest" ,
+	type:"POST",
+	data:{"questions" : question ,"creater" :USRNAME ,
+  "nameOFcontest":nameOFcontest.value , "period" : period , "LAN" : language , 
+   "ST" : STTIME },
+    });
+
+       if(language == 5)
+       {
+        alert('You Have To choice The Type of Language');
+        document.getElementById('btn02').setAttribute("data-target",".bs-example-modal-sm3");
+       }
+
+       if(language!=5 && USRNAME!='' && CONTEST!='')
+       {
+        document.getElementById('href').setAttribute('href','/');
+       }
+	   
+}
+
+
+ function refreshPage(){
+	   
+		 var check = Cookies.get('mySituation');
+			if( check == "YES" ){
+			var cont = Cookies.get("contName");
+			socket.emit("addContestant" , cont);
+			}
+	   }
+		refreshPage();	   
+		socket.on("goToContest" , function(data){
+       if(data.LANG == 1)
+	   window.location.href = "/CplusplusQuestion/" + data.CONT ;
+	   if(data.LANG == 2)
+	   window.location.href = "/HTMLQuestion/" + data.CONT ;
+	   if(data.LANG == 3)
+	   window.location.href = "/JavaQuestion/" + data.CONT ;
+	   if(data.LANG == 4)
+	   window.location.href = "/JSQuestion/" + data.CONT ;
+	   
+	   });
+
+    
+
+    function TimeToStart()
+    {
+      var day1 = document.getElementById('day').value;
+      var hour1 = document.getElementById('hour').value;
+      var minute1 = document.getElementById('minute').value;
+      var sss;
+      day1 = day1 * 24 * 60 * 60 * 1000;
+      hour1= hour1 * 60 * 60 * 1000;
+      minute1 = minute1 * 60 * 1000;
+      sss = minute1 + day1 + hour1 ;
+      return sss;
+
+    }
+</script>
+
+</body>
+</html>
