@@ -1,0 +1,76 @@
+.Body
+{
+	background-image: url('back12.jpg');
+}
+
+
+@media(max-width: 1001px)
+{
+	
+}
+
+
+h1
+{
+	color: white;
+}
+
+
+label
+{
+	color: white;
+}
+
+
+
+.dropdown-menu
+{
+	background: #222;
+	padding:5px;
+}
+
+.dropdown-menu > li > a
+{
+	color: white;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus
+{
+	background: rgba(189, 0, 3, 1);
+	color: white;
+}
+
+.dropdown-menu
+{
+	border-top: 2px solid #960018;
+	border-bottom: 2px solid #960018;
+}
+.dropdown-menu > li > a
+{
+	padding-left: 0px;
+	transition-duration: 0.7s;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus
+{
+	padding-left: 10px;
+	font-size: 15px;
+}
+
+.Form
+{
+
+	width: 30%;
+	margin-top: 30px;
+}
+
+.abd
+{
+	margin: 20px;
+}
+
+.btn1
+{
+	margin-top: 60px;
+}

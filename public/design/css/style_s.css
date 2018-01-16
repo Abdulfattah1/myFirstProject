@@ -1,0 +1,74 @@
+body
+{
+	padding-top: 60px;
+	background-image: url('3.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: white;
+
+}
+.box
+{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: rgba(255,255,255,0.9);
+	width: 40px;
+	height: 10px;
+	max-width: 450px;
+	max-height: 450px;
+	border-radius: 20px;
+	color: black;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	position: inherit;
+	top: -500px;
+}
+.box h1
+{
+	display: none;
+}
+
+
+.box .in1,.in2,.btn,p,.in01,.in02,.in03
+{
+display: none;
+margin-left: 10px;
+width: 90%;
+}
+
+.form-control
+{
+	margin-bottom: 15px;
+	text-align: center;
+	border-radius:20px;
+	font-size: 17px;
+}
+.navbar-inverse
+{
+	top: -61px;
+}
+
+.btn
+{
+	border-radius: 17px;
+}
+
+.loading
+{
+  background: #222;
+  color: #FFF;
+  position: absolute;
+  left:0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+}
+
+.inn
+{
+	display: inline;
+	width: 40%;
+}
